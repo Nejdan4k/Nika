@@ -327,7 +327,7 @@ ul {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../images/background/people-office-mob1x.png); 
+    url(../images/background/fon.jpg;)
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -339,7 +339,7 @@ ul {
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
-      url(../images/background/people-office-mob2x.png);
+      url(../images/background/fon.jpg);
   }
 }
 
@@ -386,7 +386,7 @@ ul {
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
-      url(../images/background/people-office-tablet1x.png);
+      url(../images/background/fon.jpg);
   }
   @media (min-resolution: 2dppx) {
     .hero-section {
@@ -394,7 +394,7 @@ ul {
           rgba(46, 47, 66, 0.7),
           rgba(46, 47, 66, 0.7)
         ),
-        url(../images/background/people-office-tablet2x.png);
+        url(../images/background/fon.jpg);
     }
   }
 
@@ -416,7 +416,7 @@ ul {
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
-      url(../images/background/people-office-desktop1x.jpg);
+      url(../images/background/fon.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -429,7 +429,7 @@ ul {
           rgba(46, 47, 66, 0.7),
           rgba(46, 47, 66, 0.7)
         ),
-        url(../images/background/people-office-desktop2x.png);
+        url(../images/background/fon.jpg);
     }
   }
   .hero-section-title {
