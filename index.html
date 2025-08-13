@@ -1,32 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stryzhavchuk Studio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,700;1,700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!--Header-->
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/styles.css" />
-</head>
-<body>
+    <header class="header">
+      <div class="container">
+        <nav class="navigation-header">
+          <a href="./index.html" class="logotype">
+            Stryzhavchuk<span class="studio">Studio</span>
+          </a>
+          <ul class="navigation-header-list">
+            <li>
+              <a href="./index.html" class="navigation-link current">Studio</a>
+            </li>
+            <li><a href="#portfolio" class="navigation-link">Portfolio</a></li>
+            <li><a href="#footer" class="navigation-link">Contacts</a></li>
+          </ul>
+        </nav>
+        <address class="contacts-header">
+          <ul class="contacts-header-list">
+            <li>
+              <a href="mailto: v.stryzhavchuk@gmail.com" class="contacts-header-link">
+                v.stryzhavchuk@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:+16136062203" class="contacts-header-link">
+                +1 (613) 606-22-03
+              </a>
+            </li>
+          </ul>
+        </address>
+        <button class="open-mob" data-menu-open>
+          <svg width="18" height="16">
+            <use href="./images/icons.svg#burger"></use>
+          </svg>
+        </button>
+      </div>
 
-  <div data-include="/partials/header.html"></div>
+      <!-- MOBILE MENU -->
 
-  <main>
-    <div data-include="/partials/hero.html"></div>
-    <div data-include="/partials/team.html"></div>
-    <div data-include="/partials/about.html"></div>
-    <div data-include="/partials/portfolio.html"></div>
-  </main>
+    <div class="mobile-overlay" data-menu>
+      <div class="mobile-navigation">
+        <button class="close-menu-mob-btn" type="button" data-menu-close>
+          <svg width="8" height="8" class="icons-close">
+            <use href="./images/icons.svg#close"></use>
+          </svg>
+        </button>
+        <nav class="mob-nav">
+          <ul class="navigation-mobile-list">
+            <li>
+              <a href="./index.html" class="navigation-link-mob current"
+                >Studio</a
+              >
+            </li>
+            <li><a href="#portfolio" class="navigation-link-mob">Portfolio</a></li>
+            <li><a href="#footer" class="navigation-link-mob">Contacts</a></li>
+          </ul>
+        </nav>
+        <address class="contacts-mobile">
+          <ul class="contacts-mobile-list">
+            <li>
+              <a href="tel:+16136062203" class="contacts-mobile-link">
+                +1 (613) 606-22-03
+              </a>
+            </li>
+            <li>
+              <a href="mailto:v.stryzhavchuk@gmail.com" class="contacts-mobile-link">
+                v.stryzhavchuk@gmail.com
+              </a>
+            </li>
+          </ul>
+          <ul class="mob-social-icons-list">
+            <li class="mob-social-icon-item">
+              <a href="" class="mob-social-icon-item-link">
+                <svg class="mob-icons" width="24" height="24">
+                  <use href="./images/icons.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="mob-social-icon-item">
+              <a href="" class="mob-social-icon-item-link">
+                <svg class="mob-icons" width="24" height="24">
+                  <use href="./images/icons.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="mob-social-icon-item">
+              <a href="" class="mob-social-icon-item-link">
+                <svg class="mob-icons" width="24" height="24">
+                  <use href="./images/icons.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="mob-social-icon-item">
+              <a href="" class="mob-social-icon-item-link">
+                <svg class="mob-icons" width="24" height="24">
+                  <use href="./images/icons.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </address>
+      </div>
+    </div>
+    </header>
 
-  <div data-include="/partials/footer.html"></div>
-  <div data-include="/partials/modal.html"></div>
+    <!--Main-->
 
-  <script src="/js/include-partials.js" defer></script>
-  <script src="/js/menu.js" defer></script>
-  <script src="/js/modal.js" defer></script>
-</body>
+    <main>
+
+      <!--HERO-->
+
+      <section class="hero-section section">
+        <div class="container">
+          <h1 class="hero-section-title">
+            PROFESSIONAL CARE FOR YOUR SKIN
+          </h1>
+          <button class="hero-section-button" type="button" data-modal-open>
+            ORDER
+          </button>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+<section class="team-section section">
+  <div class="container">
+    <h2 class="team-section-title">ABOUT ME</h2>
+
+    <article class="team-profile" aria-labelledby="veronika-name">
+      <div class="team-photo">
+        <img src="./images/team/nika.jpg" alt="Veronika Stryzhavchuk" />
+      </div>
+
+      <div class="team-info">
+        <h3 id="veronika-name" class="team-name">Veronika Stryzhavchuk</h3>
+        <p class="team-role">Certified Esthetician</p>
+
+        <p class="team-intro">
+          Hello beautiful people 💖<br />
+          My name is Veronika and I am happy to be your certified esthetician.
+        </p>
+
+        <p class="team-text">Here are some of the fabulous services I offer:</p>
+        <ul class="team-services">
+          <li>Facial massage</li>
+          <li>Basic facial</li>
+          <li>Specific facial treatment</li>
+          <li>Chemical peel</li>
+          <li>Microneedling</li>
+          <li>Eyelash application/refill</li>
+          <li>Eyelash lift</li>
+          <li>And that's not all...</li>
+        </ul>
+
+        <p class="team-text">
+          With my personalized approach, I'll help you say goodbye to acne,
+          pigmentation, and defeat aging. I'm here for you.
+        </p>
+
+        <p class="team-text highlight">
+          And guess what? Consultations are <strong>FREE!</strong> So why wait?
+          Your journey to glowing skin starts here ✨
+        </p>
+
+        <ul class="social-icons-list" aria-label="Social media">
+          <li class="social-icon-item">
+            <a
+              href="https://www.instagram.com/nika.stryzhavchuk?igsh=dmwyZ3d2OWV6ZWpr"
+              class="social-icon-item-link"
+              target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+            >
+              <svg class="icons" width="16" height="16">
+                <use href="./images/icons.svg#instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="social-icon-item">
+            <a
+              href="https://www.facebook.com/share/16rCLuuHWe/?mibextid=wwXIfr"
+              class="social-icon-item-link"
+              target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+            >
+              <svg class="icons" width="16" height="16">
+                <use href="./images/icons.svg#facebook"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+      <!--ABOUT-->
+
+      <section class="information-section section">
+  <div class="container">
+    <h2 class="visually-hidden">Information in company</h2>
+    <ul class="information-section-list">
+      <li class="information-section-list-item">
+        <div class="services-icon">
+          <svg class="icon" width="64" height="64" aria-hidden="true">
+            <use href="./images/icons-services.svg#icon-facials"></use>
+          </svg>
+        </div>
+        <h3 class="information-section-title">Facials</h3>
+        <p class="information-section-info">
+          Complete facial care including massage, basic facials, and specific skin treatments for a healthy glow.
+        </p>
+      </li>
+
+      <li class="information-section-list-item">
+        <div class="services-icon">
+          <svg class="icon" width="64" height="64" aria-hidden="true">
+            <use href="./images/icons-services.svg#icon-peel"></use>
+          </svg>
+        </div>
+        <h3 class="information-section-title">Chemical Peel</h3>
+        <p class="information-section-info">
+          Advanced exfoliation to improve skin texture, tone, and radiance.
+        </p>
+      </li>
+
+      <li class="information-section-list-item">
+        <div class="services-icon">
+          <svg class="icon" width="64" height="64" aria-hidden="true">
+            <use href="./images/icons-services.svg#icon-eyelash"></use>
+          </svg>
+        </div>
+        <h3 class="information-section-title">Eyelash Services</h3>
+        <p class="information-section-info">
+          Professional eyelash application, refill, and lifting for stunning eye definition.
+        </p>
+      </li>
+
+      <li class="information-section-list-item">
+        <div class="services-icon">
+          <svg class="icon" width="64" height="64" aria-hidden="true">
+            <use href="./images/icons-services.svg#icon-electrolysis"></use>
+          </svg>
+        </div>
+        <h3 class="information-section-title">Electrolysis</h3>
+        <p class="information-section-info">
+          Permanent hair removal with safe and effective electrolysis technology.
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+  
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section portfolio-section">
+  <div class="container">
+    <h2 class="portfolio-section-title">Our Portfolio</h2>
+    <ul class="portfolio-section-list">
+
+      <!-- 1 -->
+      <li class="portfolio-section-list-item">
+        <div class="portfolio-box">
+          <picture>
+            <img src="./images/portfolio/facial.jpg" alt="Facial Treatments" />
+          </picture>
+          <p class="overlay">
+            Gentle and rejuvenating facials to restore your skin’s natural glow.
+          </p>
+        </div>
+        <div class="portfolio-section-item-information">
+          <h3 class="portfolio-section-item-name">Facial Treatments</h3>
+          <p class="portfolio-section-item-text">Skin Care</p>
+        </div>
+      </li>
+
+      <!-- 2 -->
+      <li class="portfolio-section-list-item">
+        <div class="portfolio-box">
+          <picture>
+            <img src="./images/portfolio/chemical-peel.jpg" alt="Chemical Peel" />
+          </picture>
+          <p class="overlay">
+            Advanced exfoliation to refine skin texture, tone and radiance.
+          </p>
+        </div>
+        <div class="portfolio-section-item-information">
+          <h3 class="portfolio-section-item-name">Chemical Peel</h3>
+          <p class="portfolio-section-item-text">Skin Renewal</p>
+        </div>
+      </li>
+
+      <!-- 3 -->
+      <li class="portfolio-section-list-item">
+        <div class="portfolio-box">
+          <picture>
+            <img src="./images/portfolio/eyelash.jpg" alt="Eyelash Services" />
+          </picture>
+          <p class="overlay">
+            Application, refill and lift for beautiful, long-lasting lashes.
+          </p>
+        </div>
+        <div class="portfolio-section-item-information">
+          <h3 class="portfolio-section-item-name">Eyelash Services</h3>
+          <p class="portfolio-section-item-text">Eyes & Beauty</p>
+        </div>
+      </li>
+
+      <!-- 4 -->
+      <li class="portfolio-section-list-item">
+        <div class="portfolio-box">
+          <picture>
+            <img src="./images/portfolio/electrolysis.jpg" alt="Electrolysis" />
+          </picture>
+          <p class="overlay">
+            Safe and effective permanent hair removal using electrolysis.
+          </p>
+        </div>
+        <div class="portfolio-section-item-information">
+          <h3 class="portfolio-section-item-name">Electrolysis</h3>
+          <p class="portfolio-section-item-text">Hair Removal</p>
+        </div>
+      </li>
+
+      <!-- 5 -->
+      <li class="portfolio-section-list-item">
+        <div class="portfolio-box">
+          <picture>
+            <img src="./images/portfolio/microneedling.jpg" alt="Microneedling" />
+          </picture>
+          <p class="overlay">
+            Stimulate collagen production for smoother, younger-looking skin.
+          </p>
+        </div>
+        <div class="portfolio-section-item-information">
+          <h3 class="portfolio-section-item-name">Microneedling</h3>
+          <p class="portfolio-section-item-text">Skin Therapy</p>
+        </div>
+      </li>
+
+      <!-- 6 -->
+      <li class="portfolio-section-list-item">
+        <div class="portfolio-box">
+          <picture>
+            <img src="./images/portfolio/before-after.jpg" alt="Before and After" />
+          </picture>
+          <p class="overlay">
+            See the stunning results from our treatments — real client stories.
+          </p>
+        </div>
+        <div class="portfolio-section-item-information">
+          <h3 class="portfolio-section-item-name">Before & After</h3>
+          <p class="portfolio-section-item-text">Results</p>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+
+
+    <!--FOOTER-->
+
+    <footer id="footer" class="footer section">
+      <div class="container">
+        <div class="footer-box">
+          <div class="footer-information">
+            <a href="./index.html" class="logotype-footer">
+              Stryzhavchuk<span class="footer-studio">Studio</span>
+            </a>
+            <p class="footer-info">
+             Certified Esthetician
+            </p>
+          </div>
+          <div class="footer-icons">
+            <p class="footer-social-title">Social media</p>
+            <ul class="footer-social-icons-list">
+              <li class="footer-social-icon-item">
+                <a href="https://www.instagram.com/nika.stryzhavchuk?igsh=dmwyZ3d2OWV6ZWpr" class="footer-social-icon-item-link">
+                  <svg class="icons" width="24" height="24">
+                    <use href="./images/icons.svg#instagram"></use>
+                  </svg>
+                </a>
+              </li>
+              
+              <li class="footer-social-icon-item">
+                <a href="https://www.facebook.com/share/16rCLuuHWe/?mibextid=wwXIfr" class="footer-social-icon-item-link">
+                  <svg class="icons" width="24" height="24">
+                    <use href="./images/icons.svg#facebook"></use>
+                  </svg>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+         <div class="input-footer">
+          <p class="input-title-footer">Subscribe</p>
+          <form class="footer-form">
+            <label class="label-footer">
+              <input
+                class="input-area-footer"
+                type="email"
+                name="subscribe-mail"
+                placeholder="E-mail"
+              />
+            </label>
+            <button class="footer-btn" type="submit">
+              Subscribe
+              <svg class="footer-icon-btn" width="24" height="24">
+                <use href="./images/icons.svg#telegram"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAL -->
+     
+    <div class="modal-overlay" data-modal>
+      <div class="modal">
+        <button class="close-btn" type="button" data-modal-close>
+          <svg width="8" height="8" class="icons-close">
+            <use href="./images/icons.svg#close"></use>
+          </svg>
+        </button>
+        <p class="modal-title">Leave your contacts and we will call you back</p>
+        <form class="modal-form">
+          <div class="form-field">
+            <label class="form-label" for="user-name">Name</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                name="user-name"
+                id="user-name"
+                type="text"
+                required
+              />
+              <svg class="form-icon" width="18" height="24">
+                <use href="./images/icons.svg#person"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="tel">Phone</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                name="tel"
+                id="tel"
+                type="tel"
+                required
+              />
+              <svg class="form-icon" width="18" height="24">
+                <use href="./images/icons.svg#phone"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="email">Email</label>
+            <div class="input-wrapper">
+              <input
+                class="form-input"
+                name="email"
+                id="email"
+                type="email"
+                required
+              />
+              <svg class="form-icon" width="18" height="24">
+                <use href="./images/icons.svg#email"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="input-textarea">
+            <label class="form-label" for="user-comment">Comment</label>
+            <textarea
+              class="form-textarea"
+              name="user-comment"
+              id="user-comment"
+              rows="5"
+              placeholder="Text input"
+            ></textarea>
+          </div>
+          <div class="checkbox-container">
+            <input
+              class="visually-hidden"
+              type="checkbox"
+              name="user-privacy"
+              id="user-privacy"
+              value="true"
+            />
+            <label for="user-privacy" class="checkbox-title">
+              <span class="checkbox-icon">
+                <svg width="10" height="8" class="icon-checkbox">
+                  <use href="./images/icons.svg#checkbox"></use>
+                </svg>
+              </span>
+              <span class="accept-box">
+                I accept the terms and conditions of the
+                <a href="" class="privacy-policy">Privacy Policy</a>
+              </span>
+            </label>
+          </div>
+          <button class="send-btn" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+    
+    <script src="./js/menu.js"></script>
+    <script src="./js/modal.js"></script>
+  </body>
 </html>
