@@ -1,5 +1,31 @@
 /* GENERAL */
 
+
+/* === Sticky / Fixed header === */
+:root {
+  /* орієнтовні висоти хедера під твої паддінги логотипа */
+  --header-h: 64px;
+}
+
+@media (min-width: 768px)  { :root { --header-h: 72px; } }
+@media (min-width: 1158px) { :root { --header-h: 80px; } }
+
+
+/* Компенсація простору під фіксований хедер */
+body { 
+  padding-top: var(--header-h);
+}
+
+/* Щоб якорі (#anchor) не ховались під хедером */
+html { scroll-padding-top: var(--header-h); }
+
+/* Мобільне меню/оверлеї мають бути вище за хедер */
+.mobile-overlay,
+.modal-overlay {
+  z-index: 2000;
+}
+
+
 :root {
   --font-family: "Roboto", sans-serif;
   --second-family: "Raleway", sans-serif;
@@ -72,8 +98,14 @@ ul {
 /* -HEADER-*/
 
 .header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  z-index: 1100;                 /* вище звичайного контенту */
+  background-color: var(--white);/* щоб не просвічувався фон під час скролу */
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+              0px 1px 1px rgba(46, 47, 66, 0.16),
+              0px 1px 6px rgba(46, 47, 66, 0.08);
   border-bottom: 1px solid var(--cornflower);
 }
 
@@ -327,7 +359,7 @@ ul {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../images/background/people-office-mob1x.png); 
+    url(../images/background/fon.jpg); 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -339,7 +371,7 @@ ul {
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
-      url(../images/background/people-office-mob2x.png);
+      url(../images/background/fon.jpg);
   }
 }
 
@@ -386,7 +418,7 @@ ul {
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
-      url(../images/background/people-office-tablet1x.png);
+      url(../images/background/fon.jpg)
   }
   @media (min-resolution: 2dppx) {
     .hero-section {
@@ -394,7 +426,7 @@ ul {
           rgba(46, 47, 66, 0.7),
           rgba(46, 47, 66, 0.7)
         ),
-        url(../images/background/people-office-tablet2x.png);
+        url(../images/background/fon.jpg);
     }
   }
 
@@ -416,7 +448,7 @@ ul {
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
-      url(../images/background/people-office-desktop1x.jpg);
+      url(../images/background/fon.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -429,7 +461,7 @@ ul {
           rgba(46, 47, 66, 0.7),
           rgba(46, 47, 66, 0.7)
         ),
-        url(../images/background/people-office-desktop2x.png);
+        url(../images/background/fon.jpg);
     }
   }
   .hero-section-title {
@@ -622,107 +654,115 @@ ul {
   }
 }
 
-/* PORTFOLIO */
+/* ==== PORTFOLIO (1 / 2 / 2) — clean cards ==== */
 
-.overlay {
-  display: none;
-}
-
-.portfolio-section-title {
+.portfolio-section-title{
   font-size: 36px;
   line-height: 1.11;
-  letter-spacing: 0.02em;
+  letter-spacing: .02em;
   text-align: center;
   color: var(--navy-blue);
-  margin-bottom: 72px;
+  margin-bottom: 32px;
 }
 
-.portfolio-section-list {
+/* Сітка: mobile 1 в ряд, далі 2 в ряд; центруємо останній ряд */
+.portfolio-section-list{
   display: flex;
   flex-wrap: wrap;
-  gap: 48px;
+  gap: 24px;
+  justify-content: center; /* 2 або 1 в останньому ряду будуть по центру */
 }
 
-.portfolio-section-list-item {
-  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+/* Картка */
+.portfolio-section-list-item{
+  width: 100%;                     /* мобілка: 1 в ряд */
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.portfolio-section-list-item:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12);
 }
 
-.portfolio-section-list-item:hover,
-.portfolio-section-list-item:focus {
-  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
-    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+/* Планшет: 2 в ряд */
+@media (min-width:768px){
+  .portfolio-section-list-item{
+    width: calc((100% - 24px)/2);
+  }
 }
 
-.portfolio-section-item-information {
-  padding: 32px 16px;
-  border: 1px solid var(--cornflower);
-  border-top: none;
+/* Десктоп: теж 2 в ряд (симетричні 2+2) */
+@media (min-width:1158px){
+  .portfolio-section-list-item{
+    width: calc((100% - 24px)/2);
+  }
 }
 
-.portfolio-section-item-name {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+/* Прев’ю: однакова висота */
+.portfolio-box{
+  position: relative;
+  height: 300px;             /* підгони за смаком: 260/280/300 */
+  background: #f7f7fb;
+  overflow: hidden;
+}
+
+.portfolio-box picture,
+.portfolio-box img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Якщо готуєш картинки одного співвідношення — лишай cover (без білих полів) */
+.portfolio-box img{
+  object-fit: cover;
+  object-position: center;
+  transition: transform .35s ease;
+}
+.portfolio-section-list-item:hover .portfolio-box img{ transform: scale(1.03); }
+
+/* Оверлей-градієнт на ховер (акуратний) */
+.overlay{
+  position: absolute;
+  inset: 0;
+  padding: 14px;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.portfolio-section-list-item:hover .overlay{ opacity: 1; }
+
+/* Текстова частина */
+.portfolio-section-item-information{
+  padding: 16px 18px;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+.portfolio-section-item-name{
+  font-size: 18px;
+  font-weight: 700;
   color: var(--navy-blue);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+}
+.portfolio-section-item-text{
+  font-size: 14px;
+  color: var(--slate);
+  opacity: .85;
 }
 
-.portfolio-section-item-text {
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-}
-
-/* TABLET */
-
-@media screen and (min-width: 768px) {
-
-  .portfolio-section-list {
-    column-gap: 24px;
-    row-gap: 72px;
-  }
-  .portfolio-section-list-item {
-    width: calc((100% - 24px) / 2);
-  }
-}
-
-/* DESKTOP */
-
-@media screen and (min-width: 1158px) {
-  .overlay {
-    display: flex;
-  }
-  .portfolio-section-list {
-    row-gap: 48px;
-  }
-  .portfolio-section-list-item {
-    width: calc((100% - 2 * 24px) / 3);
-  }
-  .portfolio-box {
-    position: relative;
-    overflow: hidden;
-  }
-  .overlay {
-    position: absolute;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: var(--cloud);
-    background-color: var(--iris);
-    transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    padding: 40px 32px;
-  }
-  .portfolio-section-list-item:hover .overlay {
-    transform: translateY(0);
-  }
-}
 
 /* FOOTER */
+
+
+
 
 .footer {
   background-color: var(--navy-blue);
@@ -780,21 +820,41 @@ ul {
   display: flex;
   gap: 16px;
 }
+/* === Footer social icons тільки Instagram + Facebook === */
 .footer-social-icon-item-link {
-  background-color: var(--iris);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s ease;
 }
 
-.footer-social-icon-item-link:hover,
-.footer-social-icon-item-link:focus {
-  background-color: var(--ocean);
+/* іконки всередині білі */
+.footer-social-icon-item-link .icons {
+  fill: #fff;
 }
+
+/* Instagram — офіційний градієнт */
+.footer-social-icon-item-link[aria-label="Instagram"] {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, 
+              #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.footer-social-icon-item-link[aria-label="Instagram"]:hover {
+  filter: brightness(1.15);
+}
+
+/* Facebook — синій */
+.footer-social-icon-item-link[aria-label="Facebook"] {
+  background-color: #1877F2;
+}
+.footer-social-icon-item-link[aria-label="Facebook"]:hover {
+  background-color: #0D5FDB;
+}
+
+
+
 
 .input-title-footer {
   font-weight: 500;
@@ -851,10 +911,8 @@ ul {
   fill: var(--white);
 }
 
-.footer-btn:hover,
-.footer-btn:focus {
-  background-color: var(--ocean);
-}
+
+
 
 /* TABLET */
 
@@ -917,7 +975,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 2000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -950,6 +1008,7 @@ ul {
   flex-direction: column;
   justify-content: space-between;
   padding: 72px 16px 24px 16px;
+   z-index: 2100;
 }
 
 .close-btn {
@@ -1149,3 +1208,102 @@ ul {
 .send-btn:focus {
   background-color: var(--ocean);
 }
+
+
+/* === FIX: TEAM PROFILE CARD LAYOUT (back to nice two-column) === */
+
+/* Центруємо секцію і даємо адекватну ширину на десктопі */
+.team-section .container {
+  max-width: 1060px;   /* було вузько — робимо приємну ширину */
+  margin: 0 auto;
+}
+
+/* Карта профілю */
+.team-profile{
+  display: grid;
+  grid-template-columns: 1fr;       /* мобілка — одна колонка */
+  gap: 24px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 2px 1px rgba(46,47,66,.08), 0 1px 1px rgba(46,47,66,.16), 0 1px 6px rgba(46,47,66,.08);
+  padding: 24px;
+}
+
+/* Фото без спотворень, зі скругленням */
+.team-photo{ border-radius: 10px; overflow: hidden; }
+.team-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+}
+
+/* Права колонка з текстом */
+.team-info{ display:flex; flex-direction:column; gap:12px; }
+.team-name{ font-weight:700; font-size:26px; color:var(--navy-blue); }
+.team-role{ font-weight:500; color:var(--slate); }
+.team-intro{ font-size:16px; line-height:1.5; color:var(--ink); }
+.team-text{ font-size:15px; line-height:1.5; color:var(--slate); }
+.team-text.highlight{ font-size:16px; color:var(--iris); font-weight:600; }
+
+/* Список послуг — звичайні буліти та відступи */
+.team-services{
+  list-style: disc;
+  padding-left: 20px;
+  font-size:15px;
+  color:var(--slate);
+}
+
+/* Соцмережі — повертаємо охайний вигляд */
+.social-icons-list{
+  display:flex;
+  gap:16px;
+  margin-top:8px;
+}
+.social-icon-item .social-icon-item-link{
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: background-color .25s ease;
+}
+.icons{ fill: var(--cloud); }
+
+/* Instagram / Facebook окремі кольори */
+/* Instagram з градієнтом */
+.social-icon-item-link[aria-label="Instagram"] {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, 
+              #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* Hover — легке збільшення яскравості */
+.social-icon-item-link[aria-label="Instagram"]:hover,
+.social-icon-item-link[aria-label="Instagram"]:focus {
+  filter: brightness(1.1);
+}
+
+/* сам значок інсти всередині — білий */
+.social-icon-item-link[aria-label="Instagram"] .icons {
+  fill: #fff;
+}
+.social-icon-item-link[aria-label="Facebook"]{ background-color:#1877F2; }
+.social-icon-item-link[aria-label="Facebook"]:hover,
+.social-icon-item-link[aria-label="Facebook"]:focus{ background-color:#0D5FDB; }
+
+/* === Tablet/desktop: 2 колонки, фото зліва, текст справа === */
+@media (min-width:768px){
+  .team-profile{
+    grid-template-columns: 1fr 1.25fr;
+    gap: 28px;
+    padding: 28px;
+  }
+  /* щоб фото виглядало як “портрет” і не було занадто низьким */
+  .team-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+}
+
