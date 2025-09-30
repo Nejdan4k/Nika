@@ -8,3 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const msgLinks = document.querySelectorAll('[data-mmsg]');
+  const base = 'https://m.me/61571717985396';
+  const text = `Hi Veronika! I want to book a consultation. Page: ${document.title} · ${location.href}`;
+  const url = `${base}?text=${encodeURIComponent(text)}`;
+  msgLinks.forEach(a => a.setAttribute('href', url));
+});

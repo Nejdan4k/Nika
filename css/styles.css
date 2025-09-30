@@ -1307,3 +1307,57 @@ ul {
   }
 }
 
+/* Footer CTA */
+.cta-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.cta-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  will-change: transform;
+  color: #fff;
+}
+
+.cta-btn svg { fill: currentColor; }
+
+.cta-messenger { background: #1877f2; }
+.cta-call      { background: #22c55e; }
+.cta-ghost     { background: transparent; border: 1px solid rgba(255,255,255,.25); color:#fff; }
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+/* Mobile-friendly */
+@media (max-width: 480px) {
+  .cta-btn { flex: 1 1 auto; justify-content: center; }
+}
+.cta-footer {
+  text-align: center;
+  flex: 1 1 100%;
+  margin-top: 20px;
+}
